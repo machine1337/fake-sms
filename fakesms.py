@@ -1,11 +1,9 @@
-import base64
-from pathlib import Path
 from urllib import request
 import re
 import os
 import time
-import subprocess
 import platform
+import base64
 print("[*] Checking Requirements Module")
 try:
     import requests
