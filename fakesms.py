@@ -16,12 +16,6 @@ except ImportError:
     print("[*]Installing termcolor Module")
     os.system("pip install termcolor -q -q -q")
     import termcolor
-try:
-    from Coloroma import color
-except ImportError:
-    os.system("pip install Coloroma -q -q -q")
-    from Coloroma import color
-
 def logo():
     print(termcolor.colored('''
                _______ _    _  _______     ____  __  __ ______
