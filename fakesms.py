@@ -16,6 +16,11 @@ except ImportError:
     print("[*]Installing termcolor Module")
     os.system("pip install termcolor -q -q -q")
     import termcolor
+try:
+    from coluroma import colors
+except:
+    os.system("python3 -m pip install coluroma -q -q -q")
+    from coluroma import colors
 def logo():
     print(termcolor.colored('''
                _______ _    _  _______     ____  __  __ ______
