@@ -19,7 +19,7 @@ except ImportError:
 try:
     from coluroma import colors
 except:
-    os.system("python3 -m pip install coluroma -q -q -q")
+    os.system("pip install coluroma -q -q -q")
     from coluroma import colors
 def logo():
     print(termcolor.colored('''
