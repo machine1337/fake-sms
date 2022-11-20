@@ -9,13 +9,19 @@ try:
     import requests
 except ImportError:
     print("[*]Installing request Module")
-    os.system("pip install requests -q -q -q")
+    os.system("python3 -m pip install requests -q -q -q")
+    import requests
 try:
     import termcolor
 except ImportError:
     print("[*]Installing termcolor Module")
-    os.system("pip install termcolor -q -q -q")
+    os.system("python3 -m pip install termcolor -q -q -q")
     import termcolor
+try:
+    from PyFiglet import color
+except:
+    os.system("python3 -m pip install pyfilget -q -q -q")
+    from PyFiglet import color
 
 def logo():
     print(termcolor.colored('''
