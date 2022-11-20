@@ -5,23 +5,38 @@ import time
 import platform
 import base64
 print("[*] Checking Requirements Module")
-try:
-    import requests
-except ImportError:
-    print("[*]Installing request Module")
-    os.system("python3 -m pip install requests -q -q -q")
-    import requests
-try:
-    import termcolor
-except ImportError:
-    print("[*]Installing termcolor Module")
-    os.system("python3 -m pip install termcolor -q -q -q")
-    import termcolor
-try:
-    from PyFiglet import color
-except:
-    os.system("python3 -m pip install pyfilget -q -q -q")
-    from PyFiglet import color
+if platform.system().startswith("Linux"):
+    try:
+        import requests
+    except ImportError:
+        os.system("python3 -m pip install requests -q -q -q")
+        import requests
+    try:
+        import termcolor
+    except ImportError:
+        os.system("python3 -m pip install termcolor -q -q -q")
+        import termcolor
+    try:
+        from PyFiglet import color
+    except:
+        os.system("python3 -m pip install pyfilget -q -q -q")
+        from PyFiglet import color
+elif platform.system().startswith("Windows"):
+    try:
+        import requests
+    except ImportError:
+        os.system("python -m pip install requests -q -q -q")
+        import requests
+    try:
+        import termcolor
+    except ImportError:
+        os.system("python -m pip install termcolor -q -q -q")
+        import termcolor
+    try:
+        from PyFiglet import color
+    except:
+        os.system("python -m pip install pyfilget -q -q -q")
+        from PyFiglet import color
 
 def logo():
     print(termcolor.colored('''
