@@ -16,11 +16,7 @@ if platform.system().startswith("Linux"):
     except ImportError:
         os.system("python3 -m pip install termcolor -q -q -q")
         import termcolor
-    try:
-        from PyFiglet import color
-    except ImportError:
-        os.system("python3 -m pip install pyfilget -q -q -q")
-        from PyFiglet import color
+    
 elif platform.system().startswith("Windows"):
     try:
         import requests
@@ -32,11 +28,7 @@ elif platform.system().startswith("Windows"):
     except ImportError:
         os.system("python -m pip install termcolor -q -q -q")
         import termcolor
-    try:
-        from PyFiglet import color
-    except ImportError:
-        os.system("python -m pip install pyfilget -q -q -q")
-        from PyFiglet import color
+    
 def logo():
     print(termcolor.colored('''
                _______ _    _  _______     ____  __  __ ______
