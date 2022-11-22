@@ -4,6 +4,7 @@ import os
 import time
 import platform
 import base64
+
 print("[*] Checking Requirements Module")
 if platform.system().startswith("Linux"):
     try:
@@ -16,7 +17,12 @@ if platform.system().startswith("Linux"):
     except ImportError:
         os.system("python3 -m pip install termcolor -q -q -q")
         import termcolor
-    
+    try:
+        from PyFiglet import color
+    except ImportError:
+        os.system("python3 -m pip install pyfilget -q -q -q")
+        from PyFiglet import color
+
 elif platform.system().startswith("Windows"):
     try:
         import requests
@@ -28,7 +34,13 @@ elif platform.system().startswith("Windows"):
     except ImportError:
         os.system("python -m pip install termcolor -q -q -q")
         import termcolor
-    
+    try:
+        from PyFiglet import color
+    except ImportError:
+        os.system("python -m pip install pyfilget -q -q -q")
+        from PyFiglet import color
+
+
 def logo():
     print(termcolor.colored('''
                _______ _    _  _______     ____  __  __ ______
@@ -39,18 +51,21 @@ def logo():
               \_\                                           /_/
   ''', 'cyan'))
 
+
 def check_net1():
-    print(termcolor.colored("[*] Checking Internet Connection:- ",'cyan'))
+    print(termcolor.colored("[*] Checking Internet Connection:- ", 'cyan'))
     url = "https://www.google.com"
     timeout = 5
     try:
         request = requests.get(url, timeout=timeout)
-        print(termcolor.colored("[*] Connected to the Internet",'green'))
+        print(termcolor.colored("[*] Connected to the Internet", 'green'))
         os.system('cls' if os.name == 'nt' else 'clear')
         logo()
         menu()
     except (requests.ConnectionError, requests.Timeout) as exception:
-        print(termcolor.colored("[*] No internet connection.",'red'))
+        print(termcolor.colored("[*] No internet connection.", 'red'))
+
+
 def menu():
     ans = True
     while ans:
@@ -73,6 +88,8 @@ def menu():
             ans = None
         else:
             print(termcolor.colored("\n Not Valid Choice Try again", 'red'))
+
+
 def usage1():
     logo()
     print(termcolor.colored('''
@@ -84,6 +101,8 @@ def usage1():
     ..........NOTE: Only One Text Message Is Allowed Per Day...........
 
       ''', 'magenta'))
+
+
 def main_check1():
     logo()
     x = input(termcolor.colored("\n[*] Enter Your Number:- ", 'green'))
@@ -99,9 +118,12 @@ def main_check1():
     z = str(resp.json())
     n = 'False'
     if re.search(n, z):
-        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn', 'red'))
+        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn',
+                                'red'))
     else:
         print(termcolor.colored('\n[ ✔ ] Message sent ', 'green'))
+
+
 def op():
     try:
         if platform.system().startswith("Windows"):
@@ -112,8 +134,10 @@ def op():
             print("\033c")
             check_net1()
         else:
-            print(termcolor.colored("Please Use Windows Or Linux OS!",'red'))
+            print(termcolor.colored("Please Use Windows Or Linux OS!", 'red'))
     except KeyboardInterrupt:
-        print(termcolor.colored("\nYou Pressed The Exit Button!",'red'))
+        print(termcolor.colored("\nYou Pressed The Exit Button!", 'red'))
         quit()
+
+
 op()
