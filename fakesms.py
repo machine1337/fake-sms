@@ -24,9 +24,9 @@ if platform.system().startswith("Linux"):
         import colorama
         from colorama import Fore, Back, Style
     try:
-        from pystiyle import *
+        from pystyle import *
     except:
-        os.system("python3 -m pip install pystiyle -q -q -q")
+        os.system("python3 -m pip install pystyle -q -q -q")
         from pystiyle import *
 elif platform.system().startswith("Windows"):
     try:
