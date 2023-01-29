@@ -24,10 +24,10 @@ if platform.system().startswith("Linux"):
         import colorama
         from colorama import Fore, Back, Style
     try:
-        from pystiyle import *
+        from pystyle import *
     except:
-        os.system("python3 -m pip install pystiyle -q -q -q")
-        from pystiyle import *
+        os.system("python3 -m pip install pystyle -q -q -q")
+        from pystyle import *
 elif platform.system().startswith("Windows"):
     try:
         import requests
@@ -47,10 +47,10 @@ elif platform.system().startswith("Windows"):
         import colorama
         from colorama import Fore, Back, Style
     try:
-        from pystiyle import *
+        from pystyle import *
     except:
-        os.system("python -m pip install pystiyle -q -q -q")
-        from pystiyle import *
+        os.system("python -m pip install pystyle -q -q -q")
+        from pystyle import *
 colorama.deinit()
 banner = Center.XCenter("""
                 _______ _    _  _______     ____  __  __ ______
