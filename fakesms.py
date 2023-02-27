@@ -131,7 +131,7 @@ def main_check1():
         print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn',
                                 'red'))
     else:
-        print(termcolor.colored('\n[ ✔ ] Message sent ', 'green'))
+        print(termcolor.colored(f'\n[ ✔ ] Message sent To:- {x} ', 'green'))
 
 
 def op():
