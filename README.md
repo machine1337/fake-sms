@@ -8,7 +8,6 @@
    
 # About API:
      As we are using paid API and the total daily limit is 200 for all users.
-
      
 # Note:-
      If ur message is not sent then use some valid vpn like nordvpn etc and
@@ -60,7 +59,7 @@
 # video:
 https://www.youtube.com/channel/UCC_aPnmV_zGfdwktCFE9cPQ
      
-# Credit:
-     If You Like This Tool then Kindly Give us a star. Thanks.....
+# Contact:
+    Telegram Group:- https://t.me/machine1337
      
 
