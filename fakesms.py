@@ -102,10 +102,10 @@ def menu():
 def usage1():
     print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
     print(termcolor.colored('''
-      \n    1. Your Country Code Must Be without +
+      \n    1. Your Country Code Must Be With [+]
     2. Country Code Example: 91
     3. Your Phone Number Must be Start Without 0
-    4. Full Usage: 913443210111
+    4. Full Usage: +913443210111
 
     ..........NOTE: Only One Text Message Is Allowed Per Day...........
 
