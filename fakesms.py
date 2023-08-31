@@ -104,7 +104,7 @@ def usage1():
     print(termcolor.colored('''
       \n    1. Your Country Code Must Be without +
     2. Country Code Example: 91
-    3. Your Phone Number Must be Start Without 0
+    3. Your Phone Number Must Start Without 0
     4. Full Usage: 913443210111
 
     ..........NOTE: Only One Text Message Is Allowed Per Day...........
