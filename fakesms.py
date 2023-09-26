@@ -127,7 +127,7 @@ def main_check1():
     z = str(resp.json())
     n = 'False'
     if re.search(n, z):
-        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn',
+        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Europe Based Vpn',
                                 'red'))
     else:
         print(termcolor.colored(f'\n[ ✔ ] Message sent To:- {x} ', 'green'))
