@@ -3,18 +3,27 @@ import os
 import time
 import platform
 import base64
+import requests
+import termcolor
+from colorama import Fore, Back, Style
+from pystyle import Colors, Colorate, Center
+
 print("[*] Checking Requirements Module")
-if platform.system().startswith("Linux"):
+
+# Install missing dependencies for macOS, Linux, and Windows
+def install_requirements():
     try:
         import requests
     except ImportError:
         os.system("python3 -m pip install requests -q -q -q")
         import requests
+
     try:
         import termcolor
     except ImportError:
         os.system("python3 -m pip install termcolor -q -q -q")
         import termcolor
+
     try:
         import colorama
         from colorama import Fore, Back, Style
@@ -22,35 +31,17 @@ if platform.system().startswith("Linux"):
         os.system("python3 -m pip install colorama -q -q -q")
         import colorama
         from colorama import Fore, Back, Style
+
     try:
         from pystyle import *
-    except:
+    except ImportError:
         os.system("python3 -m pip install pystyle -q -q -q")
         from pystyle import *
-elif platform.system().startswith("Windows"):
-    try:
-        import requests
-    except ImportError:
-        os.system("python -m pip install requests -q -q -q")
-        import requests
-    try:
-        import termcolor
-    except ImportError:
-        os.system("python -m pip install termcolor -q -q -q")
-        import termcolor
-    try:
-        import colorama
-        from colorama import Fore, Back, Style
-    except ImportError:
-        os.system("python -m pip install colorama -q -q -q")
-        import colorama
-        from colorama import Fore, Back, Style
-    try:
-        from pystyle import *
-    except:
-        os.system("python -m pip install pystyle -q -q -q")
-        from pystyle import *
-colorama.deinit()
+
+# Make sure required modules are installed
+install_requirements()
+
+# Banner to display
 banner = Center.XCenter(r"""
                 _______ _    _  _______     ____  __  __ ______
                / /  ___/ \  | |/ / ____|   / ___||  \/  / ___\ \`
@@ -74,14 +65,13 @@ def check_net1():
     except (requests.ConnectionError, requests.Timeout) as exception:
         print(Fore.RED+'[*] No Internet Connection....')
 
-
 def menu():
     ans = True
     while ans:
         print(termcolor.colored("""
-      1.Usage
-      2.Send SMS
-      3.Exit/Quit
+      1. Usage
+      2. Send SMS
+      3. Exit/Quit
       """, 'yellow'))
         ans = input(termcolor.colored("Choose From Given Options: ", 'cyan'))
         if ans == "1":
@@ -98,19 +88,17 @@ def menu():
         else:
             print(Fore.RED+"\n [+] Not Valid Choice Try again")
 
-
 def usage1():
     print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
     print(termcolor.colored('''
       \n    1. Your Country Code Must Be without +
     2. Country Code Example: 91
-    3. Your Phone Number Must be Start Without 0
+    3. Your Phone Number Must start Without 0
     4. Full Usage: 913443210111
 
     ..........NOTE: Only One Text Message Is Allowed Per Day...........
 
       ''', 'magenta'))
-
 
 def main_check1():
     print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
@@ -127,11 +115,9 @@ def main_check1():
     z = str(resp.json())
     n = 'False'
     if re.search(n, z):
-        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn',
-                                'red'))
+        print(termcolor.colored('\n[ X ] Message not sent! Please Try Again SomeTime Or Use Any Eurpose Based Vpn', 'red'))
     else:
         print(termcolor.colored(f'\n[ ✔ ] Message sent To:- {x} ', 'green'))
-
 
 def op():
     try:
@@ -139,12 +125,13 @@ def op():
             os.system("cls")
             print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
             check_net1()
-        elif platform.system().startswith("Linux"):
+        elif platform.system().startswith("Linux") or platform.system().startswith("Darwin"):  # Darwin for macOS
             print("\033c")
             check_net1()
         else:
-            print(termcolor.colored("Please Use Windows Or Linux OS!", 'red'))
+            print(termcolor.colored("Please Use Windows Or Linux/macOS OS!", 'red'))
     except KeyboardInterrupt:
         print(termcolor.colored("\n [*]You Pressed The Exit Button!", 'red'))
         quit()
+
 op()
